@@ -1,9 +1,12 @@
 import Navbar from '@/components/Navbar/Navbar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import Footer from '@/components/Footer/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: 'Path Findre',
@@ -12,11 +15,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar></Navbar>
-        {children}
-        <Footer></Footer>
+    <html lang="en" data-theme='dark' className='transition-all'>
+      <body className={roboto.className}>
+        <Navbar />
+        <div className='p-10'>
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )
